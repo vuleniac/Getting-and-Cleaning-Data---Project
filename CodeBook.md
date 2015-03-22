@@ -44,13 +44,13 @@ The R script created to generate the tidy dataset can be found [here](https://gi
 The processsed dataset has the following characteristics:
 
 ####**ind_tidy** (dataframe): 
-Dataframe with 81 variables and 180 observations
+Dataframe with 68 variables and 180 observations
 
 * **Variables:**
 
     + subject: integer. subject identifier (1L:30L)
     + activity: factor. 6 levels. (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING)
-    + Signals: numeric. 79 variables
+    + Signals: numeric. 66 variables
         + These signals were used to estimate variables of the feature vector for each pattern:  
         '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
 
@@ -71,14 +71,6 @@ Dataframe with 81 variables and 180 observations
             fBodyAccJerkMag  
             fBodyGyroMag  
             fBodyGyroJerkMag
-        
-        + Additional vectors obtained by averaging the signals in a signal window sample. These are used on the angle() variable:
-
-            gravityMean  
-            tBodyAccMean  
-            tBodyAccJerkMean  
-            tBodyGyroMean  
-            tBodyGyroJerkMean  
     
         + The set of variables that were estimated from these signals and included in the tidy dataset are: 
 

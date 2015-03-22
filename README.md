@@ -78,7 +78,7 @@ data_df <- rbind(train_dat, test_dat)
 
 Getting the index of the variables corresponding to mean and standard deviation for each measurement.
 ```{r}
-mean_std <- grep("mean()|std()", features$V2)
+mean_std <- grep("mean\\(\\)|std\\(\\)", features$V2)
 ```
 Subsetting the combined dataset using "mean_std" index
 ```{r}
