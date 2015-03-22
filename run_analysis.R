@@ -1,6 +1,6 @@
 ## This script is part of the Johns Hopkings' Getting and Cleaning Data course project offered in COURSERA.
 ## The script produces a tidy dataset from data collected from accelerometers in Samsung Galaxy S smartphones. 
-## A full description is available at the site where the data was obtained: 
+## A full description is availabel at the site where the data was obtained: 
 ##      http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones 
 ## The routine folows these steps:
 
@@ -30,15 +30,14 @@ file_url='https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20H
             unzip("./FUCI_dataset.zip",exdir=".")
             }
         }
-    }
-
+    
 ## 2. Loading Descriptive Data: Reads in the descriptive information that is common to the "Train" and "Test" sets of data.
 
 #Variable Names
 features <- read.table('UCI HAR Dataset/features.txt', header=F, sep=" ", stringsAsFactors=F)
 
-#Activity Lables
-act_lables <- read.table('UCI HAR Dataset/activity_labels.txt', header=F, sep=" ", stringsAsFactors=F)
+#Activity labels
+act_labels <- read.table('UCI HAR Dataset/activity_labels.txt', header=F, sep=" ", stringsAsFactors=F)
 
 ## 3. Merges the training and the test sets to create one data set.
 
@@ -63,8 +62,8 @@ train_lab <- read.table('UCI HAR Dataset/train/y_train.txt', header=F, sep=" ")
 test_lab <- read.table('UCI HAR Dataset/test/y_test.txt', header=F, sep=" ")
 #Combining the activity information for the "Train" and "Test" datasets
 acti_fct <- rbind(train_lab, test_lab)
-#Turning the activity variable from Numeric to Factor via cut() and assaigning the corresponding activity lables (act_lables)
-acti_fct <- cut(acti_fct[,1],breaks=(length(act_lables[,1])), labels=act_lables[,2])
+#Turning the activity variable from Numeric to Factor via cut() and assaigning the corresponding activity labels (act_labels)
+acti_fct <- cut(acti_fct[,1],breaks=(length(act_labels[,1])), labels=act_labels[,2])
 
 ## 6. Appropriately labels the data set with descriptive variable names
 
@@ -106,6 +105,7 @@ ind_tidy <- dcast(melt(select(tidy_df,-set),
 ## 8. Write tidy data
 
 write.table(ind_tidy, file = "tidy_data.txt", row.name=FALSE)
+
 View(ind_tidy)
 
 #############################  END SCRIPT  ##################################
